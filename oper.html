@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="burgir.css"/>
+    <link rel="stylesheet" href="pn-butt.css"/>
+    <script src="https://kit.fontawesome.com/57cec8c89d.js" crossorigin="anonymous"></script> 
+</head>
+
+<body class="light-mode">
+    <header class="header">
+        <div class="header-main">
+            <div class="logo">
+                <img src="ppg logo.png" class="logo" alt="Logo">
+            </div>
+
+            <div class="open-nav-menu">
+                <span></span>
+            </div>
+
+            <div class="menu-overlay"></div>
+
+            <nav class="nav-menu">
+                <div class="close-nav-menu"><i class="fa-solid fa-xmark"></i></div>
+                <ul class="menu">
+                    <li class="menu-item"><a href="home-landing.html">Home</a></li>
+                    <li class="menu-item"><a href="abt.html">About Us</a></li>
+                    <li class="menu-item menu-item-has-children"><a href="#" data-toggle="sub-menu">Menu <i class="plus"></i></a>
+                        <ul class="sub-menu">
+                            <li class="menu-item"><a href="start.html">Introduction</a></li>
+                            <li class="menu-item"><a href="Data.html">Data Types</a></li>
+                            <li class="menu-item"><a href="var.html">Variables</a></li>
+                            <li class="menu-item"><a href="oper.html">Operators</a></li>
+                            <li class="menu-item"><a href="sts.html">Statements</a></li>
+                            <li class="menu-item"><a href="loops.html">Loops</a></li>
+                            <li class="menu-item"><a href="func.html">Functions</a></li>
+                            <li class="menu-item"><a href="quiz.html">Test Yourself</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="compiler.html">Code Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <script src="burgir.js"></script>
+
+    <script>
+        let processScroll = () => {
+            let docelem = document.documentElement;
+            let docBody = document.body;
+            let scrolltop = docelem['scrollTop'] || docBody['scrollTop'];
+            let scrollbot = (docelem['scrollHeight'] || docBody['scrollHeight']) - window.innerHeight;
+            
+            let scrollpercent = scrolltop / scrollbot * 100 + '%';
+            
+            document.getElementById('progress-bar').style.setProperty('--scrollAmount', scrollpercent);
+        };
+    
+        document.addEventListener('scroll', processScroll);
+    </script>
+    
+    <div id="progress-bar">
+        <img src="hoributt.gif" alt="Progress Icon" class="progress-icon">
+    </div>
+
+    <script src="theme.js"></script>
+
+    <div class="toggler">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label" onclick="toggleDarkMode()">
+            <i class="fa-regular fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+
+    <button id="backToTopBtn" onclick="scrollToTop()">Back to Top</button>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    
+        window.onscroll = function () {
+            toggleBackToTopButton();
+        };
+    
+        function toggleBackToTopButton() {
+            var backToTopButton = document.getElementById('backToTopBtn');
+            var contentHeight = document.body.scrollHeight - window.innerHeight;
+            var scrollPercentage = (document.documentElement.scrollTop || document.body.scrollTop) / contentHeight * 100;
+    
+            if (scrollPercentage > 50) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        }
+    </script>
+
+       <!-- jump to burikat pagkahaba haba naman kasi-->
+       
+       <div class="jump-to-dropdown">
+        <h1>JavaScript Operators</h1>
+        <div class="jumper">
+            <button class="jumpmain" onclick="toggleDropdown()"><i class="fa-solid fa-location-arrow fa-bounce"></i> <i>Jump to Section</i></button>
+        </div>
+        <div class="dropdown-content" id="jumpDropdown">
+            <button onclick="jumpToSection('assign-oper')">Assignment Operators</button>
+            <button onclick="jumpToSection('arithmetic-oper')">Arithmetic Operators</button>
+            <button onclick="jumpToSection('compar-oper')">Comparison Operators</button>
+            <button onclick="jumpToSection('logic-oper')">Logical Operators</button>
+            <button onclick="jumpToSection('condi-oper')">Conditional Operators</button>
+        </div>
+    </div>
+    
+       
+       <!-- JavaScript function to handle dropdown toggle and jumping to sections -->
+       <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("jumpDropdown");
+            dropdown.classList.toggle("show");
+        }
+
+        function jumpToSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            if (section) {
+                var offset = section.offsetTop - document.querySelector('.header').offsetHeight;
+                window.scrollTo({
+                    top: offset,
+                    behavior: 'smooth'
+                });
+            }
+            toggleDropdown(); // Close the dropdown after clicking a section
+        }
+    </script>
+
+       <div class="para">
+        <p>
+            Let us take a simple expression <b>4 + 5 is equal to 9</b>. Here 4 and 5 are called <b>operands</b> and '+' is called the <b>operator</b>. JavaScript supports the following types of operators:
+            <br>
+            <br>
+                        <ul>
+                            <li>Assignment Operators</li>
+                            <li>Arithmetic Operators</li>
+                            <li>Comparison Operators</li>
+                           <li>Logical (or Relational) Operators</li>
+                           <li>Conditional (or Ternary) Operator</li>
+                        </ul>
+        </p>
+       </div>
+
+    <section id="assign-oper">
+    <div class="para">
+        <h2>Assignment Operators</h2>
+        <p><b>Assignment operators</b> are used to <b>assign</b> values to variables. Here's a list of commonly used assignment operators:</p>
+    </div>
+
+    <br>
+    <center><table border="1" align="center">
+        <tr>
+            <th>Operator</th>
+            <th>Name</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>=</td>
+            <td>Assignment operator</td>
+            <td>a = 7; // 7</td>
+        </tr>
+        <tr>
+            <td>+=</td>
+            <td>Addition assignment</td>
+            <td>a += 5; // a = a + 5</td>
+        </tr>
+        <tr>
+            <td>-=</td>
+            <td>Subtraction assignment</td>
+            <td>a -= 2; // a = a - 2</td>
+        </tr>
+        <tr>
+            <td>*=</td>
+            <td>Multiplication assignment</td>
+            <td>a *= 3; // a = a * 3</td>
+        </tr>
+        <tr>
+            <td>/=</td>
+            <td>Division assignment</td>
+            <td>a /= 2; // a = a / 2</td>
+        </tr>
+        <tr>
+            <td>%=</td>
+            <td>Remainder assignment</td>
+            <td>a %= 2; // a = a % 2</td>
+        </tr>
+        <tr>
+            <td>**=</td>
+            <td>Exponentiation assignment</td>
+            <td>a **= 2; // a = a**2</td>
+        </tr>
+    </table></center>
+    </section>   
+
+    <section id="arithmetic-oper">
+    <div class="para">
+        <h2>Arithmetic Operators</h2>
+        <p><b>Arithmetic operators</b> are used to perform mathematical calculations. The following operators are known as JavaScript arithmetic operators:</p>
+    </div>
+
+    <br>
+    <center><table border="1" align="center">
+        <tr>
+            <th>Operator</th>
+            <th>Name</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>+</td>
+            <td>Addition</td>
+            <td>10 + 20 = 30</td>
+        </tr>
+        <tr>
+            <td>-</td>
+            <td>Subraction</td>
+            <td>20 - 10 = 10</td>
+        </tr>
+        <tr>
+            <td>*</td>
+            <td>Multiplication</td>
+            <td>50*2 = 100</td>
+        </tr>
+        <tr>
+            <td>/</td>
+            <td>Division</td>
+            <td>30/5 = 6</td>
+        </tr>
+        <tr>
+            <td>%</td>
+            <td>Modulus(Remainder)</td>
+            <td>20%10 = 0</td>
+        </tr>
+        <tr>
+            <td>++</td>
+            <td>Increment</td>
+            <td>var a=10; a++; Now a= 11</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>Decrement</td>
+            <td>var a=10; a--; Now a= 9</td>
+        </tr>
+    </table></center>
+    
+    <div class="para">
+        <p><b>Example 1: Arithmetic operators in JavaScript</b></p>
+    </div>
+
+    <div class="code-container" id="operAttributes">
+        <pre>
+        <code>        
+            
+&lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+        &lt;body&gt;
+            &lt;script type="text/javascript"&gt;
+              &lt;!--
+              var a = 33;
+              var b = 10;
+              var c = "Test";
+              var linebreak = "&lt;br&gt;";
+           
+              document.write("a + b = ");
+              result = a + b;
+              document.write(result);
+              document.write(linebreak);
+           
+              document.write("a - b = ");
+              result = a - b;
+              document.write(result);
+              document.write(linebreak);
+           
+              document.write("a / b = ");
+              result = a / b;
+              document.write(result);
+              document.write(linebreak);
+           
+              document.write("a % b = ");
+              result = a % b;
+              document.write(result);
+              document.write(linebreak);
+           
+              document.write("a + b + c = ");
+              result = a + b + c;
+              document.write(result);
+              document.write(linebreak);
+           
+              a = ++a;
+              document.write("++a = ");
+              result = ++a;
+              document.write(result);
+              document.write(linebreak);
+           
+              b = --b;
+              document.write("--b = ");
+              result = --b;
+              document.write(result);
+              document.write(linebreak);
+              //--&gt;
+            &lt;/script&gt;
+
+            &lt;p&gt;Set the variable to different value and then try...  &lt;/p&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+            </code>
+        </pre>
+        <button class="copy-button" onclick="copyCode('operAttributes')">Copy Code</button>
+    </div>
+    
+
+    <div class="output-container">
+        <h2>Output:</h2>
+        <div class="output-content">
+            <pre>
+                a + b = 43
+                a - b = 23
+                a / b = 3.3
+                a % b = 3
+                a + b + c = 43Test
+                ++a = 35
+                --b = 8
+                    
+                Set the variable to different value and then try...
+            </pre> 
+        </div>
+    </div>
+    </section>
+
+    <section id="compar-oper">
+    <div class="para">
+        <h2>Comparison Operators</h2>
+        <p><b>Comparison operators</b> compare two values and return a boolean value, either <b>true</b> or <b>false</b>. The following operators are known as JavaScript comparison operators:</p>
+    </div>
+
+    <br>
+    <center><table border="1" align="center">
+        <tr>
+            <th>Operator</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>==</td>
+            <td><b>Equal to:</b> retruns <b>true</b> if the operands are equal.</td>
+            <td>x == y</td>
+        </tr>
+        <tr>
+            <td>!=</td>
+            <td><b>Not equal to:</b> returns <b>true</b> if the operands are not equal</td>
+            <td>x != y</td>
+        </tr>
+        <tr>
+            <td>===</td>
+            <td><b>Strict equal to:</b> <b>true</b> if the operands are equal and of the same type</td>
+            <td>x === y</td>
+        </tr>
+        <tr>
+            <td>!==</td>
+            <td><b>Strict not equal:</b> <b>true</b> if the operands are equal but of different type or not equal at all</td>
+            <td>x !== y</td>
+        </tr>
+        <tr>
+            <td>></td>
+            <td><b>Greater than:</b> <b>true</b> if left operand is greater than the right operand</td>
+            <td>x > y</td>
+        </tr>
+        <tr>
+            <td>>=</td>
+            <td><b>Greater than or equal:</b> <b>true</b> if left operand is greater than or equal to the right operand</td>
+            <td>x >= y</td>
+        </tr>
+        <tr>
+            <td><</td>
+            <td><b>Less than:</b> <b>true</b> if the left operand is less than the right operand</td>
+            <td>x < y</td>
+        </tr>
+        <tr>
+            <td><=</td>
+            <td><b>Less than or equal to:</b> <b>true</b> if the left operand is less than or equal to the right operand</td>
+            <td>x <= y</td>
+        </tr>
+    </table></center>
+
+    <div class="para">
+        <p><b>Example 2: Comparison operators in JavaScript</b></p>
+    </div>
+
+    <div class="code-container" id="oper2">
+        <h2>JavaScript comparison operators</h2>
+        <pre>
+        <code>
+               // equal operator
+               console.log(2 == 2); // true
+               console.log(2 == '2'); // true
+
+               // not equal operator
+               console.log(3 != 2); // true
+               console.log('hello' != 'Hello'); // true
+
+               // strict equal operator
+               console.log(2 === 2); // true
+               console.log(2 === '2'); // false
+
+              // strict not equal operator
+              console.log(2 !== '2'); // true
+              console.log(2 !== 2); // false
+        </code>
+        </pre>
+        <p>
+        
+        <button class="copy-button" onclick="copyCode('oper2')">Copy Code</button>
+    </div>
+    </section>
+
+    <section id="logic-oper">
+    <div class="para">
+        <h2>Logical Operators</h2>
+        <p><b>Logical operators</b> perform logical operations and return a boolean value, either <b>true</b> or <b>false.</b> The following operators are known as JavaScript logical operators:</p>
+    </div>
+
+    <br>
+    
+    <center><table border="1">
+        <tr>
+            <th>Operator</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>&&</td>
+            <td><b>Logical AND:</b> <b>true</b> if both the operands are <b>true</b>, else retruns <b>false</b></td>
+            <td>(10 == 20 && 20 == 30) = false</td>
+        </tr>
+        <tr>
+            <td>||</td>
+            <td><b>Logical OR:</b> <b>true</b> if either of the operands is <b>true</b>; returns false if both are <b>false</b></td>
+            <td>(10 == 20 && 20 == 30) = false</td>
+        </tr>
+        <tr>
+            <td>!</td>
+            <td><b>Logical NOT:</b> <b>true</b> if the operand is <b>false</b> and vice-versa</td>
+            <td>!(10 == 20) = true</td>
+        </tr>
+    </table></center>
+
+    <div class="para">
+        <p><b>Example 3: Logical operators in JavaScript</b></p>
+    </div>
+
+    <div class="code-container" id="oper3">
+        <h2>JavaScript logical operators</h2>
+        <pre>
+        <code>
+               // logical AND
+               console.log(true && true); // true
+               console.log(true && false); // false
+
+               // logical OR
+               console.log(true || false); // true
+
+              // logical NOT
+              console.log(!true); // false
+        </code>
+        </pre>
+        <p>
+        
+        <button class="copy-button" onclick="copyCode('oper3')">Copy Code</button>
+    </div>
+
+    <div class="output-container">
+        <h2>Output:</h2>
+        <div class="output-content">
+        <pre>
+                      true
+                      false
+                      true
+                      false
+            
+        </pre>
+            
+        </div>
+    </div>
+    </section>
+
+    <section id="condi-oper">
+    <div class="para">
+        <h2>Conditional (Ternary) Operator</h2>
+        <p>JavaScript also contains a conditional operator that assigns a value to a variable based on some condition.</p>
+    </div>
+
+    <div class="container">
+        <div class="code-container" id="scriptAttributes">
+            <h2>Syntax:</h2>
+            <pre>
+            <code>
+                variablename = (condition) ? value1:value2
+            </pre>
+        </div>
+
+    <div class="para">
+            <p><b>Example 4: Conditional operator in JavaScript</b>
+                <br> In the example below, if the variable <b>age</b> is a value below 18, the value of the variable <b>voteable</b> will be "Too young", otherwise the value of <b>voteable</b> will be "Old enough". </p>
+            </div>
+    <div class="code-container" id="cond1">
+        <h2>JavaScript conditional operator</h2>
+        <pre>
+        <code>
+            let voteable = (age < 18) ? "Too young":"Old enough";
+        </code>
+        </pre>
+        <p>
+        
+        <button class="copy-button" onclick="copyCode('cond1')">Copy Code</button>
+    </div>
+    </div>
+    </section>
+
+    
+
+
+    <div class="wrapper">
+        <a href="var.html">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Previous
+    </a>  
+        <a href="sts.html">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Next
+        </a>  
+    </div>
+    
+
+    <script>
+        function copyCode(containerId) {
+            const codeContainer = document.getElementById(containerId);
+            const codeToCopy = codeContainer.querySelector('code').innerText;
+
+            const tempInput = document.createElement('textarea');
+            tempInput.value = codeToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            alert('Code copied to clipboard!');
+        }
+    </script>
+
+    </body>
+    </html>

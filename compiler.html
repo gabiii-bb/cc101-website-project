@@ -1,0 +1,81 @@
+<html>
+ <head>
+    <title>Try Coding Now</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="boorat.css"/>
+    <script src="https://kit.fontawesome.com/57cec8c89d.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-main">
+        <div class="logo">
+            <img src="ppg logo.png" class="logo" alt="Logo">
+        </div>
+
+        <div class="open-nav-menu">
+            <span></span>
+        </div>
+
+        <div class="menu-overlay"></div>
+
+        <nav class="nav-menu">
+            <div class="close-nav-menu"><i class="fa-solid fa-xmark"></i></div>
+            <ul class="menu">
+                <li class="menu-item"><a href="home-landing.html">Home</a></li>
+                <li class="menu-item"><a href="abt.html">About Us</a></li>
+                <li class="menu-item menu-item-has-children"><a href="#" data-toggle="sub-menu">Menu <i class="plus"></i></a>
+                    <ul class="sub-menu">
+                        <li class="menu-item"><a href="start.html">Introduction</a></li>
+                        <li class="menu-item"><a href="Data.html">Data Types</a></li>
+                        <li class="menu-item"><a href="var.html">Variables</a></li>
+                        <li class="menu-item"><a href="oper.html">Operators</a></li>
+                        <li class="menu-item"><a href="sts.html">Statements</a></li>
+                        <li class="menu-item"><a href="loops.html">Loops</a></li>
+                        <li class="menu-item"><a href="func.html">Functions</a></li>
+                        <li class="menu-item"><a href="quiz.html">Test Yourself</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item"><a href="compiler.html">Code Now</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<script src="burgir.js"></script>
+
+    <div class="cont">
+      <div class="editors">
+        <h3><i class="fa-brands fa-html5"></i> HTML</h3>
+        <textarea id="html-code" onkeyup="run()"></textarea>
+      </div>
+      
+      <div class="editors">
+        <h3><i class="fa-brands fa-css3-alt"></i> CSS</h3>
+        <textarea id="css-code" onkeyup="run()"></textarea>
+      </div>
+
+      <div class="editors">
+        <h3><i class="fa-brands fa-js"></i> JavaScript</h3>
+        <textarea id="js-code" onkeyup="run()"></textarea>
+      </div>
+    </div>
+    
+      <div class="bot">
+        <h3><i class="fa-solid fa-play"></i> Output</h3>
+        <iframe id="output"></iframe>
+      </div>
+
+      <script>
+        function run() {
+          let htmlc = document.getElementById("html-code").value;
+          let cssc = document.getElementById("css-code").value;
+          let jsc = document.getElementById("js-code").value;
+          let res = document.getElementById("output");
+
+          output.contentDocument.body.innerHTML = htmlc + "<style>" + cssc + "</style>";
+          output.contentWindow.eval(jsc);
+        }
+      </script>
+    
+  </body>
+</html>

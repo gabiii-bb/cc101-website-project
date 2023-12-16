@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="burgir.css"/>
+    <link rel="stylesheet" href="pn-butt.css"/>
+    <script src="https://kit.fontawesome.com/57cec8c89d.js" crossorigin="anonymous"></script> 
+</head>
+
+<body class="light-mode">
+    <header class="header">
+        <div class="header-main">
+            <div class="logo">
+                <img src="ppg logo.png" class="logo" alt="Logo">
+            </div>
+
+            <div class="open-nav-menu">
+                <span></span>
+            </div>
+
+            <div class="menu-overlay"></div>
+
+            <nav class="nav-menu">
+                <div class="close-nav-menu"><i class="fa-solid fa-xmark"></i></div>
+                <ul class="menu">
+                    <li class="menu-item"><a href="home-landing.html">Home</a></li>
+                    <li class="menu-item"><a href="abt.html">About Us</a></li>
+                    <li class="menu-item menu-item-has-children"><a href="#" data-toggle="sub-menu">Menu <i class="plus"></i></a>
+                        <ul class="sub-menu">
+                            <li class="menu-item"><a href="start.html">Introduction</a></li>
+                            <li class="menu-item"><a href="Data.html">Data Types</a></li>
+                            <li class="menu-item"><a href="var.html">Variables</a></li>
+                            <li class="menu-item"><a href="oper.html">Operators</a></li>
+                            <li class="menu-item"><a href="sts.html">Statements</a></li>
+                            <li class="menu-item"><a href="loops.html">Loops</a></li>
+                            <li class="menu-item"><a href="func.html">Functions</a></li>
+                            <li class="menu-item"><a href="quiz.html">Test Yourself</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="compiler.html">Code Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <script src="burgir.js"></script>
+
+    <script>
+        let processScroll = () => {
+            let docelem = document.documentElement;
+            let docBody = document.body;
+            let scrolltop = docelem['scrollTop'] || docBody['scrollTop'];
+            let scrollbot = (docelem['scrollHeight'] || docBody['scrollHeight']) - window.innerHeight;
+            
+            let scrollpercent = scrolltop / scrollbot * 100 + '%';
+            
+            document.getElementById('progress-bar').style.setProperty('--scrollAmount', scrollpercent);
+        };
+    
+        document.addEventListener('scroll', processScroll);
+    </script>
+    
+    <div id="progress-bar">
+        <img src="hoributt.gif" alt="Progress Icon" class="progress-icon">
+    </div>
+
+    <script src="theme.js"></script>
+
+    <div class="toggler">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label" onclick="toggleDarkMode()">
+            <i class="fa-regular fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+
+    <button id="backToTopBtn" onclick="scrollToTop()">Back to Top</button>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    
+        window.onscroll = function () {
+            toggleBackToTopButton();
+        };
+    
+        function toggleBackToTopButton() {
+            var backToTopButton = document.getElementById('backToTopBtn');
+            var contentHeight = document.body.scrollHeight - window.innerHeight;
+            var scrollPercentage = (document.documentElement.scrollTop || document.body.scrollTop) / contentHeight * 100;
+    
+            if (scrollPercentage > 50) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        }
+    </script>
+
+    <div class="para">
+        <h1>JavaScript Var </h1>
+        <p>In JavaScript, the <b>var</b> keyword is used to declare a variable. Variables declared with <b>var</b> are function-scoped, meaning they are only accessible within the function in which they are declared. If a variable is declared outside of any function, it becomes a global variable.</p>
+        </div>
+
+    <div class="container">
+        <div class="code-container" id="scriptAttributes">
+            <h2>Syntax:</h2>
+            <pre>
+            <code>
+                  var variableName = valueOfVar;
+            </pre>
+        </div>
+    
+    <div class="para">
+        <p>The variables declared using the var statement are <b>hoisted</b> at the top and are initialized before the execution of code with a default value of undefined. The variables declared in the global scope that is outside any function cannot be deleted.</p>
+
+            <p><b>Example 1: Basic Variable Declaration</b>
+                <br>Here, a variable named <b>age</b> is declared and assigned the value <b>25</b>. The <b>var</b> keyword is used to declare the variable. </p>
+            </div>
+        
+    <div class="code-container" id="var1">
+            <h2>JavaScript var</h2>
+            <pre>
+            <code>
+                  var age = 25;
+            </code>
+            </pre>
+            <p>
+            
+            <button class="copy-button" onclick="copyCode('var1')">Copy Code</button>
+        </div>
+    
+    <div class="para">
+            <p><b>Example 2: Declaring multiple variables using the var keyword</b>
+                <br>In this example, we are declaring and initializing three variables: <b>name</b>, <b>age</b>, and <b>isStudent</b> using the var keyword. Each variable is assigned a different value. </p>
+            </div>
+    
+   <div class="code-container" id="var2">
+            <h2>JavaScript var</h2>
+            <pre>
+            <code>
+                  var name = 'John Doe',
+                      age = 25,
+                      isStudent = true;
+            </code>
+            </pre>
+            <p>
+            
+            <button class="copy-button" onclick="copyCode('var2')">Copy Code</button>
+        </div>
+
+    <div class="para">
+            <p><b>Example 3: Variable Reassignment</b>
+                <br>In this example, the variable <b>count</b> is declared and initialized with the value <b>10</b>. Later, its value is modified by adding <b>5</b> to it. </p>
+            </div>
+    
+    <div class="code-container" id="var3">
+            <h2>JavaScript var</h2>
+            <pre>
+            <code>
+                  var count = 10;
+                  count = count + 5;
+            </code>
+            </pre>
+            <p>
+            
+            <button class="copy-button" onclick="copyCode('var3')">Copy Code</button>
+        </div>
+
+    <div class="para">
+            <p><b>Example 4: Function Scope</b>
+                <br>In this example, the variable <b>x</b> is declared inside a function using the <b>var</b> keyword. It has function scope, meaning it is only accessible within the function. </p>
+            </div>
+
+    <div class="code-container" id="var4">
+            <h2>JavaScript var</h2>
+            <pre>
+            <code>
+                  function example() {
+                      var x = 5;
+                      console.log(x);
+                   }
+            </code>
+            </pre>
+            <p>
+            
+            <button class="copy-button" onclick="copyCode('var4')">Copy Code</button>
+        </div>
+
+    <div class="para">
+        <p><b>Example 5: Global Scope</b>
+            <br>In the example below, the variable <b>globalVar</b> is declared outside any function, making it a global variable. It can be accessed from any part of the code, including functions. </p>
+        </div>   
+
+    <div class="code-container" id="var5">
+            <h2>JavaScript var</h2>
+            <pre>
+            <code>
+                  var globalVar = "I am global!";
+                  function example() {
+                  console.log(globalVar);
+                  }
+            </code>
+            </pre>
+            <p>
+            
+            <button class="copy-button" onclick="copyCode('var5')">Copy Code</button>
+        </div>
+
+    <div class="para">
+        <p><b>Example 6: Hoisting</b>
+             <br>Due to hoisting, the variable declaration is moved to the top of its scope during the compilation phase. However, the assignment remains in place. In the first <b>console.log</b>, <b>message</b> is declared but not yet assigned, so it logs <b>undefined</b>. </p>
+         </div>
+
+    <div class="code-container" id="var6">
+            <h2>JavaScript var</h2>
+            <pre>
+            <code>
+                 console.log(message); // undefined
+                 var message = "Hello, hoisting!";
+                 console.log(message); // Hello, hoisting!
+            </code>
+            </pre>
+            <p>
+            
+            <button class="copy-button" onclick="copyCode('var6')">Copy Code</button>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <a href="var.html">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Previous
+        </a>  
+        <a href="let_keyword.html">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Next
+          </a>  
+      </div>
+
+    <script>
+        function copyCode(containerId) {
+            const codeContainer = document.getElementById(containerId);
+            const codeToCopy = codeContainer.querySelector('code').innerText;
+
+            const tempInput = document.createElement('textarea');
+            tempInput.value = codeToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            alert('Code copied to clipboard!');
+        }
+    </script>
+
+</body>
+</html>

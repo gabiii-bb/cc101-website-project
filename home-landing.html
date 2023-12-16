@@ -1,0 +1,80 @@
+<html>
+ <head>
+    <title>Basic Javascript Tutorial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stls.css"/> 
+    <link rel="stylesheet" href="pn-butt.css"/>
+    <script src="https://kit.fontawesome.com/57cec8c89d.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Sriracha&display=swap" rel="stylesheet">
+</head>
+
+<body class="light-mode">
+    <header class="header">
+        <div class="header-main">
+            <div class="logo">
+                <img src="ppg logo.png" class="logo" alt="Logo">
+            </div>
+
+            <div class="open-nav-menu">
+                <span></span>
+            </div>
+
+            <div class="menu-overlay"></div>
+
+            <nav class="nav-menu">
+                <div class="close-nav-menu"><i class="fa-solid fa-xmark"></i></div>
+                <ul class="menu">
+                    <li class="menu-item"><a href="home-landing.html">Home</a></li>
+                    <li class="menu-item"><a href="abt.html">About Us</a></li>
+                    <li class="menu-item menu-item-has-children"><a href="#" data-toggle="sub-menu">Menu <i class="plus"></i></a>
+                        <ul class="sub-menu">
+                            <li class="menu-item"><a href="start.html">Introduction</a></li>
+                            <li class="menu-item"><a href="Data.html">Data Types</a></li>
+                            <li class="menu-item"><a href="var.html">Variables</a></li>
+                            <li class="menu-item"><a href="oper.html">Operators</a></li>
+                            <li class="menu-item"><a href="sts.html">Statements</a></li>
+                            <li class="menu-item"><a href="loops.html">Loops</a></li>
+                            <li class="menu-item"><a href="func.html">Functions</a></li>
+                            <li class="menu-item"><a href="quiz.html">Test Yourself</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="compiler.html">Code Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <script src="burgir.js"></script>
+
+    <script src="theme.js"></script>
+
+    <div class="toggler">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label" onclick="toggleDarkMode()">
+            <i class="fa-regular fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+
+
+        <div class="ask">
+          <h1>WELCOME!</h1>
+          <h3>Are you a First Year College Student?</h3>
+          <p>Yes! I want to know the Basics of Javascript</p>
+          <div>
+            <button type="button" onclick="redirectToStartPage()"><span></span>Start Now</button>
+          </div>
+      </div>
+    </div>
+    <script>
+    function redirectToStartPage() {
+      window.location.href = "start.html";
+      }
+    </script>
+    </div>
+    
+ </body>
+  
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="burgir.css"/>
+    <link rel="stylesheet" href="pn-butt.css"/>
+    <script src="https://kit.fontawesome.com/57cec8c89d.js" crossorigin="anonymous"></script> 
+</head>
+
+<body class="light-mode">
+    <header class="header">
+        <div class="header-main">
+            <div class="logo">
+                <img src="ppg logo.png" class="logo" alt="Logo">
+            </div>
+
+            <div class="open-nav-menu">
+                <span></span>
+            </div>
+
+            <div class="menu-overlay"></div>
+
+            <nav class="nav-menu">
+                <div class="close-nav-menu"><i class="fa-solid fa-xmark"></i></div>
+                <ul class="menu">
+                    <li class="menu-item"><a href="home-landing.html">Home</a></li>
+                    <li class="menu-item"><a href="abt.html">About Us</a></li>
+                    <li class="menu-item menu-item-has-children"><a href="#" data-toggle="sub-menu">Menu <i class="plus"></i></a>
+                        <ul class="sub-menu">
+                            <li class="menu-item"><a href="start.html">Introduction</a></li>
+                            <li class="menu-item"><a href="Data.html">Data Types</a></li>
+                            <li class="menu-item"><a href="var.html">Variables</a></li>
+                            <li class="menu-item"><a href="oper.html">Operators</a></li>
+                            <li class="menu-item"><a href="sts.html">Statements</a></li>
+                            <li class="menu-item"><a href="loops.html">Loops</a></li>
+                            <li class="menu-item"><a href="func.html">Functions</a></li>
+                            <li class="menu-item"><a href="quiz.html">Test Yourself</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="compiler.html">Code Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <script src="burgir.js"></script>
+
+    <script>
+        let processScroll = () => {
+            let docelem = document.documentElement;
+            let docBody = document.body;
+            let scrolltop = docelem['scrollTop'] || docBody['scrollTop'];
+            let scrollbot = (docelem['scrollHeight'] || docBody['scrollHeight']) - window.innerHeight;
+            
+            let scrollpercent = scrolltop / scrollbot * 100 + '%';
+            
+            document.getElementById('progress-bar').style.setProperty('--scrollAmount', scrollpercent);
+        };
+    
+        document.addEventListener('scroll', processScroll);
+    </script>
+    
+    <div id="progress-bar">
+        <img src="hoributt.gif" alt="Progress Icon" class="progress-icon">
+    </div>
+
+    <script src="theme.js"></script>
+
+    <div class="toggler">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label" onclick="toggleDarkMode()">
+            <i class="fa-regular fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+
+    <button id="backToTopBtn" onclick="scrollToTop()">Back to Top</button>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    
+        window.onscroll = function () {
+            toggleBackToTopButton();
+        };
+    
+        function toggleBackToTopButton() {
+            var backToTopButton = document.getElementById('backToTopBtn');
+            var contentHeight = document.body.scrollHeight - window.innerHeight;
+            var scrollPercentage = (document.documentElement.scrollTop || document.body.scrollTop) / contentHeight * 100;
+    
+            if (scrollPercentage > 50) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        }
+    </script>
+
+    <div class="para">
+        <h1>JavaScript Variables</h1>
+        <p><b>JavaScript Variables</b> are the building blocks of any programming language. In JavaScript, variables can be used to store reusable values. The values of the variables are allocated using the assignment operator(“=”).</p>
+        </div>
+    
+    <div class="para">
+        <h2>JavaScript Identifiers</h2>
+        <p>JavaScript variables must have unique names. These names are called Identifiers.
+
+            There are some basic rules to declare a variable in JavaScript:
+            
+            <br><br>• These are case-sensitive
+            <br>• Can only begin with a letter, underscore(“_”) or “$” symbol
+            <br>• It can contain letters, numbers, underscore, or “$” symbol
+            <br>• A variable name cannot be a reserved keyword.</p>
+        
+        <p><b>JavaScript</b> is a dynamically typed language so the type of variables is decided at runtime. Therefore there is no need to explicitly define the type of a variable. We can declare variables in JavaScript in three ways:
+
+            <style>
+                @keyframes arrowAnimation {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(5px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .fa-arrow-pointer {
+            animation: arrowAnimation 2s infinite;
+        }
+            </style>
+            <br><a href="var_keyword.html">• JavaScript var keyword <i class="fa-solid fa-arrow-pointer"></i></a>
+            <br><a href="let_keyword.html">• JavaScript let keyword <i class="fa-solid fa-arrow-pointer"></i></a>
+            <br><a href="const_keyword.html">• JavaScript const keyword <i class="fa-solid fa-arrow-pointer"></i></a></p>
+        </div>
+
+    <div class="container">
+        <div class="code-container" id="scriptAttributes">
+            <h2>Syntax:</h2>
+            <pre>
+            <code>
+                var powerpuff = "Hello Puffs!"   // Declaration using var
+                let $ = "Welcome"            // Declaration using let
+                const _example = "Js"       // Declaration using const
+            </code>
+            </pre>
+        </div>
+    <div class="para">
+       <p><b>Example 1:</b> In this example, we will declare variables using var.</p>
+    </div> 
+
+        <div class="code-container" id="var">
+            <h2>JavaScript var</h2>
+            <pre>
+            <code>
+                // Using var to declare variables in JavaScript
+                var firstName = "John";
+                var age = 30;
+                var isStudent = false;
+
+                // Displaying the values of the variables
+                console.log("First Name: " + firstName);
+                console.log("Age: " + age);
+                console.log("Is Student: " + isStudent);  
+            </code>
+            </pre>
+            <p>
+            
+            <button class="copy-button" onclick="copyCode('var')">Copy Code</button>
+        </div>
+
+    <div class="output-container">
+        <h2>Output:</h2>
+        <div class="output-content">
+        <pre>
+            First Name: John
+            Age: 30
+            Is Student: false
+        </pre>
+        </div>
+        </div>
+
+    <div class="para">
+        <p><b>Example 2:</b> In this example, we will declare variables using let.</p>
+    </div>
+
+        <div class="code-container" id="let">
+            <h2>JavaScript let</h2>
+            <pre>
+            <code>
+                // Declaring variables using the let keyword
+                let firstName = 'John';
+                let lastName = 'Perkins';
+                let age = 30;
+
+                // Printing the values of the variables
+                console.log('First Name:', firstName);
+                console.log('Last Name:', lastName);
+                console.log('Age:', age);
+            </code>
+            </pre>
+            <p>
+            
+            <button class="copy-button" onclick="copyCode('let')">Copy Code</button>
+        </div>
+    
+    <div class="output-container">
+        <h2>Output:</h2>
+        <div class="output-content">
+        <pre>
+             First Name: John
+             Last Name: Perkins
+             Age: 30
+        </pre>
+        </div>
+    </div>
+
+    <div class="para">
+        <p><b>Example 3:</b> In this example, we will declare variables using const.</p>
+    </div>
+    
+        <div class="code-container" id="const">
+            <h2>JavaScript const</h2>
+            <pre>
+            <code>
+                const x = 5;
+                const y = 6;
+                const z = x + y;
+
+                console.log('The total is:',z);
+            </code>
+            </pre>
+            <p>
+            
+            <button class="copy-button" onclick="copyCode('const')">Copy Code</button>
+        </div>
+    
+    <div class="output-container">
+        <h2>Output:</h2>
+        <div class="output-content">
+        <pre>
+            The total is: 11
+        </pre>
+        </div>
+    </div>
+
+    <div class="para">
+        <h2>When to Use var, let, or const?</h2>
+        <p>
+            <br>• Always declare variables
+
+            <br>• Always use const if the value should not be changed
+            
+            <br>• Always use const if the type should not be changed (Arrays and Objects)
+            
+            <br>• Only use let if you can't use const
+            
+            <br>• Only use var if you MUST support old browsers.</p>
+
+        <p><b>Comparison of properties of var, let, and const keywords in JavaScript:</b></p>
+    </div>
+
+    <br>
+    <center><table border="1">
+        <tr>
+            <th>Property</th>
+            <th>var</th>
+            <th>let</th>
+            <th>const</th>
+        </tr>
+        <tr>
+            <td>Scope</td>
+            <td>Function scoped</td>
+            <td>Block scoped</td>
+            <td>Block scoped</td>
+        </tr>
+        <tr>
+            <td>Updation</td>
+            <td>Mutable</td>
+            <td>Mutable</td>
+            <td>Immutable</td>
+        </tr>
+        <tr>
+            <td>Redeclaration</td>
+            <td>Can be redeclared</td>
+            <td>Cannot be redeclared</td>
+            <td>Cannot be redeclared</td>
+        </tr>
+        <tr>
+            <td>Hoisting</td>
+            <td>Hoisted at top</td>
+            <td>Hoisted at top</td>
+            <td>Hoisted at top</td>
+        </tr>
+        <tr>
+            <td>Origins</td>
+            <td>Pre ES2015</td>
+            <td>ES2015(ES6)</td>
+            <td>ES2015(ES6)</td>
+        </tr>
+        <tr>
+            <td>Support</td>
+            <td>Supported in the old version of browser</td>
+            <td>Not supported in the old version of the browser</td>
+            <td>Not supported in the old version of the browser</td>
+        </tr>
+    </table></center>
+    </div>
+
+    <div class="wrapper">
+        <a href="Data.html">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Previous
+        </a>  
+        <a href="oper.html">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Next
+          </a>  
+      </div>
+
+    <script>
+        function copyCode(containerId) {
+            const codeContainer = document.getElementById(containerId);
+            const codeToCopy = codeContainer.querySelector('code').innerText;
+
+            const tempInput = document.createElement('textarea');
+            tempInput.value = codeToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            alert('Code copied to clipboard!');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="burgir.css"/>
+    <link rel="stylesheet" href="pn-butt.css"/>
+    <script src="https://kit.fontawesome.com/57cec8c89d.js" crossorigin="anonymous"></script> 
+</head>
+
+<body class="light-mode">
+    <header class="header">
+        <div class="header-main">
+            <div class="logo">
+                <img src="ppg logo.png" class="logo" alt="Logo">
+            </div>
+
+            <div class="open-nav-menu">
+                <span></span>
+            </div>
+
+            <div class="menu-overlay"></div>
+
+            <nav class="nav-menu">
+                <div class="close-nav-menu"><i class="fa-solid fa-xmark"></i></div>
+                <ul class="menu">
+                    <li class="menu-item"><a href="home-landing.html">Home</a></li>
+                    <li class="menu-item"><a href="abt.html">About Us</a></li>
+                    <li class="menu-item menu-item-has-children"><a href="#" data-toggle="sub-menu">Menu <i class="plus"></i></a>
+                        <ul class="sub-menu">
+                            <li class="menu-item"><a href="start.html">Introduction</a></li>
+                            <li class="menu-item"><a href="Data.html">Data Types</a></li>
+                            <li class="menu-item"><a href="var.html">Variables</a></li>
+                            <li class="menu-item"><a href="oper.html">Operators</a></li>
+                            <li class="menu-item"><a href="sts.html">Statements</a></li>
+                            <li class="menu-item"><a href="loops.html">Loops</a></li>
+                            <li class="menu-item"><a href="func.html">Functions</a></li>
+                            <li class="menu-item"><a href="quiz.html">Test Yourself</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="compiler.html">Code Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <script src="burgir.js"></script>
+
+    <script>
+        let processScroll = () => {
+            let docelem = document.documentElement;
+            let docBody = document.body;
+            let scrolltop = docelem['scrollTop'] || docBody['scrollTop'];
+            let scrollbot = (docelem['scrollHeight'] || docBody['scrollHeight']) - window.innerHeight;
+            
+            let scrollpercent = scrolltop / scrollbot * 100 + '%';
+            
+            document.getElementById('progress-bar').style.setProperty('--scrollAmount', scrollpercent);
+        };
+    
+        document.addEventListener('scroll', processScroll);
+    </script>
+    
+    <div id="progress-bar">
+        <img src="hoributt.gif" alt="Progress Icon" class="progress-icon">
+    </div>
+
+    <script src="theme.js"></script>
+
+    <div class="toggler">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label" onclick="toggleDarkMode()">
+            <i class="fa-regular fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+
+    <button id="backToTopBtn" onclick="scrollToTop()">Back to Top</button>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    
+        window.onscroll = function () {
+            toggleBackToTopButton();
+        };
+    
+        function toggleBackToTopButton() {
+            var backToTopButton = document.getElementById('backToTopBtn');
+            var contentHeight = document.body.scrollHeight - window.innerHeight;
+            var scrollPercentage = (document.documentElement.scrollTop || document.body.scrollTop) / contentHeight * 100;
+    
+            if (scrollPercentage > 50) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        }
+    </script>
+
+    <div class="para">
+        <h1>JavaScript Const</h1>
+        <p>In JavaScript, the <b>const</b> keyword is used to declare a variable with a constant value, meaning its value cannot be reassigned after initialization. It provides a way to create variables that are read-only and cannot be changed throughout the execution of the program. However, it's important to note that using <b>const</b> does not make the variable's content itself immutable; it just prevents reassignment of the variable to a different value.</p>
+        </div>
+    
+    <div class="container">
+        <div class="code-container" id="scriptAttributes">
+            <h2>Syntax:</h2>
+            <pre>
+            <code>
+                const const_name;
+                const x;
+            </pre>
+        </div>
+    
+    <div class="para">
+        <p><b>Properties:</b>
+  
+            <br><br>• Cannot be reassigned.
+            <br>• It has Block Scope
+            <br>• It can be assigned to the variable on the declaration line.
+            <br>• It is a Primitive value.
+            <br>• The property of a const object can be changed but it cannot be changed to a reference to the new object
+            <br>• The values inside the const array can be changed, it can add new items to const arrays but it cannot reference a new array.
+            <br>• Re-declaring of a const variable inside different block scopes is allowed.
+            <br>• Cannot be Hoisted.
+            <br>• Creates only read-only references to value.</p>
+        
+        <p><b>Example 1: Primitive data type</b>
+            <br> In this example, we declare a constant variable <b>pi</b> and assign it the value of 3.14. Trying to reassign a new value to <b>pi</b> will result in an error because it's declared with <b>const</b>. </p> 
+        </div>
+ 
+    <div class="code-container" id="const1">
+            <h2>JavaScript const</h2>
+            <pre>
+            <code>
+                const pi = 3.14;
+                console.log(pi);  // Output: 3.14
+
+                // Attempting to reassign will result in an error
+                // pi = 3.14159;  // Error: Assignment to constant variable.
+            </code>
+            </pre>
+            <p>
+            
+            <button class="copy-button" onclick="copyCode('const1')">Copy Code</button>
+        </div>
+
+    <div class="para">
+            <p><b>Example 2: Describing the const variable which contains the Block Scope</b>
+                <br> This JavaScript code illustrates the concept of block scoping using the <b>const</b> keyword. Initially, a constant variable <b>x</b> is declared with the value 22 in the outermost scope. Within a block, a new constant variable <b>x</b> is declared with the value 90, demonstrating how block-scoped variables don't affect the outer scope. Subsequently, two nested blocks introduce their own <b>x</b> variables with values 77 and 45, respectively. Despite these inner declarations, each <b>console.log(x)</b> within the nested blocks outputs their respective local <b>x</b> values. Finally, outside all blocks, a <b>console.log(x)</b> prints the value of the outermost <b>x</b>, which remains unaffected by the inner block declarations, displaying 22. This demonstrates how block scoping confines variable declarations to their respective blocks, preventing unintended variable conflicts. </p>
+            </div>
+    
+    <div class="code-container" id="const2">
+            <h2>JavaScript const</h2>
+            <pre>
+            <code>
+                const x = 22;
+            {
+	                const x = 90;
+	                console.log(x);
+
+	            {
+		                const x = 77;
+		                console.log(x);
+	            }
+	            {
+		                const x = 45;
+		                console.log(x);
+	            }
+            }
+            console.log(x);
+            </code>
+            </pre>
+            <p>
+            
+            <button class="copy-button" onclick="copyCode('const2')">Copy Code</button>
+        </div>
+    <div class="output-container">
+        <h2>Output:</h2>
+        <div class="output-content">
+        <pre>
+                           90
+                           77
+                           45
+                           22
+        </pre>
+            
+        </div>
+    </div>
+
+    <div class="para">
+        <p><b>Example 3: Object</b>
+            <br> In this example, we declare a constant variable <b>person</b> and assign it an object with properties <b>name</b> and <b>age</b>. While we can modify the properties of the object, trying to reassign a new object to <b>person</b> will result in an error.</p>
+        </div>
+
+    <div class="code-container" id="const3">
+            <h2>JavaScript const</h2>
+            <pre>
+            <code>
+                const person = {
+                    name: 'John',
+                    age: 30
+                  };
+                  
+                  console.log(person.name);  // Output: John
+                  
+                  // Modifying the object properties is allowed
+                  person.age = 31;
+                  console.log(person.age);  // Output: 31
+                  
+                  // Reassigning the entire object will result in an error                
+            </code>
+            </pre>
+            <p>
+            
+            <button class="copy-button" onclick="copyCode('const3')">Copy Code</button>
+        </div>
+
+    <div class="para">
+        <p><b>Example 4: Array</b>
+            <br> Here, we declare a constant variable <b>numbers</b> and assign it an array. Modifying the elements of the array is allowed, but trying to assign a new array to <b>numbers</b> will result in an error.</p>
+        </div>
+
+    <div class="code-container" id="const4">
+            <h2>JavaScript const</h2>
+            <pre>
+            <code>
+                const numbers = [1, 2, 3, 4];
+
+                console.log(numbers[0]);  // Output: 1
+
+                // Modifying the array elements is allowed
+                numbers[1] = 5;
+                console.log(numbers);  // Output: [1, 5, 3, 4]
+
+                // Reassigning the entire array will result in an error
+                // numbers = [10, 20, 30];  // Error: Assignment to constant variable.
+            </code>
+            </pre>
+            <p>
+            
+            <button class="copy-button" onclick="copyCode('const4')">Copy Code</button>
+        </div>
+
+    <div class="output-container">
+            <h2>Output:</h2>
+            <div class="output-content">
+            <pre>
+                1
+                [ 1, 5, 3, 4 ]
+            </pre>
+                
+            </div>
+        </div>
+    
+    <div class="para">
+        <p>Using <b>const</b> is a good practice when you have values that should not be changed throughout the execution of your program. It makes your code more robust by preventing unintentional reassignments.</p>
+        </div>
+        </div>
+    
+    <div class="wrapper">
+        <a href="let_keyword.html">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Previous
+        </a>  
+        <a href="oper.html">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Next
+          </a>  
+      </div>
+
+    <script>
+        function copyCode(containerId) {
+            const codeContainer = document.getElementById(containerId);
+            const codeToCopy = codeContainer.querySelector('code').innerText;
+
+            const tempInput = document.createElement('textarea');
+            tempInput.value = codeToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            alert('Code copied to clipboard!');
+        }
+    </script>
+
+</body>
+</html>

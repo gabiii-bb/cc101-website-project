@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="burgir.css"/>
+    <link rel="stylesheet" href="pn-butt.css"/>
+    <script src="https://kit.fontawesome.com/57cec8c89d.js" crossorigin="anonymous"></script> 
+</head>
+
+<body class="light-mode">
+    <header class="header">
+        <div class="header-main">
+            <div class="logo">
+                <img src="ppg logo.png" class="logo" alt="Logo">
+            </div>
+
+            <div class="open-nav-menu">
+                <span></span>
+            </div>
+
+            <div class="menu-overlay"></div>
+
+            <nav class="nav-menu">
+                <div class="close-nav-menu"><i class="fa-solid fa-xmark"></i></div>
+                <ul class="menu">
+                    <li class="menu-item"><a href="home-landing.html">Home</a></li>
+                    <li class="menu-item"><a href="abt.html">About Us</a></li>
+                    <li class="menu-item menu-item-has-children"><a href="#" data-toggle="sub-menu">Menu <i class="plus"></i></a>
+                        <ul class="sub-menu">
+                            <li class="menu-item"><a href="start.html">Introduction</a></li>
+                            <li class="menu-item"><a href="Data.html">Data Types</a></li>
+                            <li class="menu-item"><a href="var.html">Variables</a></li>
+                            <li class="menu-item"><a href="oper.html">Operators</a></li>
+                            <li class="menu-item"><a href="sts.html">Statements</a></li>
+                            <li class="menu-item"><a href="loops.html">Loops</a></li>
+                            <li class="menu-item"><a href="func.html">Functions</a></li>
+                            <li class="menu-item"><a href="quiz.html">Test Yourself</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="compiler.html">Code Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <script src="burgir.js"></script>
+
+    <script>
+        let processScroll = () => {
+            let docelem = document.documentElement;
+            let docBody = document.body;
+            let scrolltop = docelem['scrollTop'] || docBody['scrollTop'];
+            let scrollbot = (docelem['scrollHeight'] || docBody['scrollHeight']) - window.innerHeight;
+            
+            let scrollpercent = scrolltop / scrollbot * 100 + '%';
+            
+            document.getElementById('progress-bar').style.setProperty('--scrollAmount', scrollpercent);
+        };
+    
+        document.addEventListener('scroll', processScroll);
+    </script>
+    
+    <div id="progress-bar">
+        <img src="hoributt.gif" alt="Progress Icon" class="progress-icon">
+    </div>
+
+    <script src="theme.js"></script>
+
+    <div class="toggler">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label" onclick="toggleDarkMode()">
+            <i class="fa-regular fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+
+    <button id="backToTopBtn" onclick="scrollToTop()">Back to Top</button>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    
+        window.onscroll = function () {
+            toggleBackToTopButton();
+        };
+    
+        function toggleBackToTopButton() {
+            var backToTopButton = document.getElementById('backToTopBtn');
+            var contentHeight = document.body.scrollHeight - window.innerHeight;
+            var scrollPercentage = (document.documentElement.scrollTop || document.body.scrollTop) / contentHeight * 100;
+    
+            if (scrollPercentage > 50) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        }
+    </script>
+    
+    <h1>JavaScript Functions</h1>
+    <div class="para">
+        <p>
+            A function is a group of reusable code which can be called anywhere in your program. This eliminates the need of fighting the same code again and again. It help programmers in writing modular codes. Functions allow a programmer to divide a big program into a number of small and manageable functions.
+        </p>
+
+        <h2>Function Definition</h2>
+        <p>
+            Before we use a function , we need to define it. The common way to define a function and JavaScript is by using the function key word, followed by a unique function name, a list of parameters (that might be empty) , and a statement block surrounded by curly braces.
+          <br>
+          <br>
+          <b>Syntax:</b>
+          <br>
+           The basic syntax is shown here:
+        </p>
+    </div>
+    
+    <div class="container">
+        <div class="code-container">
+            <pre>
+                <code>
+                &lt;script type="text/javascript"&gt;
+                    &lt;!--
+                       function functionname(parameter-list){
+                          statements
+                       }
+                   //--&gt;
+               &lt;/script&gt;
+      
+                </code>
+            </pre>
+        </div>
+        <div class="para">
+            <p>
+                <b>Example:</b>
+                <br>
+                <br>
+                Try the following example. It defines a function called sayHello that takes no parameters:
+            </p>
+        </div>
+        <div class="code-container" id="funcAttributes">
+            <pre>
+            <code>                    
+&lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+        &lt;body&gt;
+            &lt;script type="text/javascript"&gt;
+                function sayHello() {
+                    alert("Hello there");
+                }
+            &lt;/script&gt;
+            &lt;p&gt;Set the variable to different value and then try...  &lt;/p&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+            </code>
+            </pre>
+            <button class="copy-button" onclick="copyCode('funcAttributes')">Copy Code</button>
+        </div>
+
+        <div class="output-container">
+            <h2>Output:</h2>
+                <div class="output-content">
+                <pre>
+                    Use different text in write method and then try...
+                </pre> 
+                </div>
+            </div>  
+
+    <div class="para">
+        <p>
+            <b><i>Calling a Function</i></b>
+            <br>
+            <br>
+            To invoke a function somewhere later in the script, you would simply need to write the name of that function as shown in the following code.
+        </p>
+    </div>
+
+    <div class="code-container" id="funcAttributes2">
+        <pre>
+        <code>        
+&lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+        &lt;head&gt;
+            &lt;script type="text/javascript"&gt;
+             function sayHello() {
+                document.write("Hello there");
+             }
+            &lt;/script&gt;
+        &lt;/head&gt;
+      
+        &lt;body&gt;
+            &lt;p&gt; Click the following button to call the function.&lt;/p&gt;
+            &lt;form&gt;
+                &lt;input type = "button" onclick="sayHello()" value="Say Hello"&gt;
+            &lt;/form&gt;
+            &lt;p&gt; Use different text in write method and then try...&lt;/p&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+        </code>
+        </pre>
+        <button class="copy-button" onclick="copyCode('funcAttributes2')">Copy Code</button>
+    </div>
+
+    <div class="output-container">
+        <h2>Output:</h2>
+            <div class="output-content">
+                <script type="text/javascript">
+                    function sayHello() {
+                       document.write("Hello there");
+                    }
+                   </script>
+                   <p> Click the following button to call the function.</p>
+                   <form>
+                       <input type = "button" onclick="sayHello()" value="Say Hello">
+                   </form>
+                   <p> Use different text in write method and then try...</p>
+            </div>
+        </div>  
+
+<div class="para">
+    <p>
+        <b><i>Function Parameters</i></b>
+        <br>
+    </p>
+</div>
+
+<div class="code-container" id="funcAttributes3">
+    <pre>
+    <code>        
+&lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+        &lt;head&gt;
+            &lt;script type="text/javascript"&gt;
+             function sayHello1(name, age) {
+                document.write(name + "is" + age + "years old.");
+             }
+            &lt;/script&gt;
+        &lt;/head&gt;
+  
+        &lt;body&gt;
+            &lt;p&gt; Click the following button to call the function.&lt;/p&gt;
+            &lt;form&gt;
+               &lt;input type = "button" onclick= "sayHello1('Zara', 7)" value= "Say Hello"&gt;
+            &lt;/form&gt;
+            &lt;p&gt; Use different text in write method and then try...&lt;/p&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+  
+    </code>
+    </pre>
+    <button class="copy-button" onclick="copyCode('funcAttributes3')">Copy Code</button>
+</div>
+
+<div class="output-container">
+    <h2>Output:</h2>
+        <div class="output-content">
+                <script type="text/javascript">
+                 function sayHello1(name, age) {
+                    document.write(name + " is " + age + " years old.");
+                 }
+                </script>
+                    <p> Click the following button to call the function.</p>
+                <form><input type = "button" onclick="sayHello1('Zara', 7)" value="Say Hello"></form>
+                <p> Use different text in write method and then try...</p>
+        </div>
+</div>  
+    </div>
+    
+    <div class="wrapper">
+        <a href="loops.html">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Previous
+        </a>
+    </div>
+    <script>
+        function copyCode(containerId) {
+            const codeContainer = document.getElementById(containerId);
+            const codeToCopy = codeContainer.querySelector('code').innerText;
+
+            const tempInput = document.createElement('textarea');
+            tempInput.value = codeToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            alert('Code copied to clipboard!');
+        }
+    </script>
+
+</body>
+</html>

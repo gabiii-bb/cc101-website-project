@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="burgir.css"/>
+    <link rel="stylesheet" href="pn-butt.css"/>
+    <script src="https://kit.fontawesome.com/57cec8c89d.js" crossorigin="anonymous"></script> 
+</head>
+
+<body class="light-mode">
+    <header class="header">
+        <div class="header-main">
+            <div class="logo">
+                <img src="ppg logo.png" class="logo" alt="Logo">
+            </div>
+
+            <div class="open-nav-menu">
+                <span></span>
+            </div>
+
+            <div class="menu-overlay"></div>
+
+            <nav class="nav-menu">
+                <div class="close-nav-menu"><i class="fa-solid fa-xmark"></i></div>
+                <ul class="menu">
+                    <li class="menu-item"><a href="home-landing.html">Home</a></li>
+                    <li class="menu-item"><a href="abt.html">About Us</a></li>
+                    <li class="menu-item menu-item-has-children"><a href="#" data-toggle="sub-menu">Menu <i class="plus"></i></a>
+                        <ul class="sub-menu">
+                            <li class="menu-item"><a href="start.html">Introduction</a></li>
+                            <li class="menu-item"><a href="Data.html">Data Types</a></li>
+                            <li class="menu-item"><a href="var.html">Variables</a></li>
+                            <li class="menu-item"><a href="oper.html">Operators</a></li>
+                            <li class="menu-item"><a href="sts.html">Statements</a></li>
+                            <li class="menu-item"><a href="loops.html">Loops</a></li>
+                            <li class="menu-item"><a href="func.html">Functions</a></li>
+                            <li class="menu-item"><a href="quiz.html">Test Yourself</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="compiler.html">Code Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <script src="burgir.js"></script>
+
+    <script>
+        let processScroll = () => {
+            let docelem = document.documentElement;
+            let docBody = document.body;
+            let scrolltop = docelem['scrollTop'] || docBody['scrollTop'];
+            let scrollbot = (docelem['scrollHeight'] || docBody['scrollHeight']) - window.innerHeight;
+            
+            let scrollpercent = scrolltop / scrollbot * 100 + '%';
+            
+            document.getElementById('progress-bar').style.setProperty('--scrollAmount', scrollpercent);
+        };
+    
+        document.addEventListener('scroll', processScroll);
+    </script>
+    
+    <div id="progress-bar">
+        <img src="hoributt.gif" alt="Progress Icon" class="progress-icon">
+    </div>
+
+    <script src="theme.js"></script>
+
+    <div class="toggler">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label" onclick="toggleDarkMode()">
+            <i class="fa-regular fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+
+    <button id="backToTopBtn" onclick="scrollToTop()">Back to Top</button>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    
+        window.onscroll = function () {
+            toggleBackToTopButton();
+        };
+    
+        function toggleBackToTopButton() {
+            var backToTopButton = document.getElementById('backToTopBtn');
+            var contentHeight = document.body.scrollHeight - window.innerHeight;
+            var scrollPercentage = (document.documentElement.scrollTop || document.body.scrollTop) / contentHeight * 100;
+    
+            if (scrollPercentage > 50) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        }
+    </script>
+
+    <h1>JavaScript Statements</h1>
+
+    <div class="para">
+        <h2>if...else Attributes</h2>
+        <p>   
+            While writing a program, there may be a situation when you need to adopt one out of a given set of paths. In such cases, you need to use conditional statements that allow your program to make correct decisions and perform right actions.
+            <br>
+            JavaScript supports conditional statements which are used to perform different actions based on different conditions. Here we will explain the if..else statement.
+            <br>
+            Flow Chart of if-else adopt The following flow chart shows how the if-else statement works.
+            <br><br>
+            <center>
+             <img src="flw.png" float="left">
+            </center>
+            <br>
+            
+            JavaScript supports the following forms of if..else statement:
+                        <ul>
+                            <li>if statement</li> <li>if...else statement</li> <li>if...else if... statement</li>
+                        </ul>
+        </p>
+    </div>
+
+    <div class="para">
+        <p><b>Example 1: if statement</b></p>
+        <p>The given JavaScript code initializes an age variable with a value of 20 and checks if it is greater than 18 using a conditional statement <b>" if (age > 18)"</b>. If the condition is true, the code dynamically writes "Qualifies for driving." in bold to the document using the <b> document.write</b> method.</p>
+    </div>
+
+    <div class="container">
+    <div class="code-container" id="ifelseAttributes">        
+        <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+              &lt;html&gt;
+                 &lt;body&gt;
+                   &lt;script type="text/javascript"&gt;
+                      &lt;!--
+                          var age = 20;
+                           if (age >18){
+                              document write("&lt;b&gt;Qualifies for driving.&lt;/b&gt;");
+                           }
+                        //--&gt;
+                   &lt;/script&gt;
+                   &lt;p&gt;Set the variable to different value and then try...&lt;p&gt;
+                 &lt;/body&gt;
+               &lt;/html&gt;
+        </code>
+        </pre>
+        <button class="copy-button" onclick="copyCode('ifelseAttributes')">Copy Code</button>
+    </div>
+    
+    <div class="output-container">
+        <h2>Output:</h2>
+        <div class="output-content">
+            <pre>
+            <b>Qualifies for driving.</b>
+
+            Set the variable to different value and then try...
+            </pre> 
+        </div>
+    </div>
+
+    <div class="para">
+        <p>Example 2: if-else statement</p>
+        <p>Unlike the first example, the code shown below no longer meets the condition statement <b> if (age < 18)" </b> so the code will not execute the contents of its <b>document.write</b>. Instead, it will proceed to the else block and writes <b> "Does not qualify for driving".</b> using the same <b>document.write</b></p>
+    </div> 
+    <div class="code-container" id="ifAttributes">
+            <pre>
+            <code>
+                &lt;!DOCTYPE html&gt;
+                   &lt;html&gt;
+                      &lt;body&gt;
+                         &lt;script type="text/javascript"&gt;
+                            &lt;!--
+                               var age = 20;  
+            
+                               if (age >18) {
+                                     document write("&lt;b&gt;Qualifies for driving.&lt;/b&gt);
+                                } else {
+                                document.write("&lt;b&gt;Does not qualify for driving.&lt;/b&gt;");
+                                }
+                            //--&gt;
+                         &lt;/script&gt;
+                         &lt;p&gt;Set the variable to different value and then try...&lt;p&gt;
+                      &lt;/body&gt;
+                   &lt;/html&gt;
+            </code>
+            </pre>
+        <button class="copy-button" onclick="copyCode('ifAttributes')">Copy Code</button>
+    </div>
+    
+<div class="output-container">
+    <h2>Output:</h2>
+    <div class="output-content">
+        <pre>
+        <b>Does not qualify for driving.</b>
+
+        Set the variable to different value and then try...
+        </pre> 
+    </div>
+</div>
+
+<div class="para">
+    <p><b>Example 3: if-else if</b></p>
+    <p> In this example, the code assigns the value <b"maths"></b> to the variable name  <b>'book'</b>. The code first check if book is equal to history and, if true, writes "History book" in bold to the document. If the initial condition is false, it proceeds to the next <b>'else if'</b> statement, checking if book is equal to "maths". If this condition is true, it writes "Maths Book" to the document, and this process will continue until the condition are meet. However, if none of the conditions are met, it writes "Unknown Books".
+    </p>
+</div> 
+<div class="code-container" id="ifAttributes">
+    <pre>
+    <code>
+        &lt;!DOCTYPE html&gt;
+           &lt;html&gt;
+              &lt;body&gt;
+                 &lt;script type="text/javascript"&gt;
+                    &lt;!--
+                    var book = "maths";  
+
+                    if (book == "history" ) {
+                          document.write("&lt;b&gt;History Book&lt;/b&gt;");
+                       } else if (book == "maths" ) {
+                          document.write("&lt;b&gt;Maths Book&lt;/b&gt;");
+                       } else if (book == "economics" ) {
+                          document.write("&lt;b&gt;Economics Book&lt;/b&gt;");
+                       } else {
+                          document.write("&lt;b&gt;Unknown Book&lt;/b&gt;");
+                       }
+                   //--&gt;
+                 &lt;/script&gt;
+                 &lt;p&gt;Set the variable to different value and then try...&lt;/p&gt;
+ 
+              &lt;/body&gt;
+           &lt;/html&gt;
+    </code>
+    </pre>
+<button class="copy-button" onclick="copyCode('ifAttributes')">Copy Code</button>
+</div>
+
+<div class="output-container">
+    <h2>Output:</h2>
+    <div class="output-content">
+        <pre>
+        <b>Maths Book</b>
+
+        Set the variable to different value and then try...
+        </pre> 
+    </div>
+</div>
+</div>
+
+    <div class="wrapper">
+        <a href="oper.html">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Previous
+        </a>  
+        <a href="loops.html">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Next
+          </a>  
+      </div>
+
+    <script>
+        function copyCode(containerId) {
+            const codeContainer = document.getElementById(containerId);
+            const codeToCopy = codeContainer.querySelector('code').innerText;
+
+            const tempInput = document.createElement('textarea');
+            tempInput.value = codeToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            alert('Code copied to clipboard!');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="burgir.css"/>
+    <link rel="stylesheet" href="pn-butt.css"/>
+    <script src="https://kit.fontawesome.com/57cec8c89d.js" crossorigin="anonymous"></script> 
+</head>
+
+<body class="light-mode">
+    <header class="header">
+        <div class="header-main">
+            <div class="logo">
+                <img src="ppg logo.png" class="logo" alt="Logo">
+            </div>
+
+            <div class="open-nav-menu">
+                <span></span>
+            </div>
+
+            <div class="menu-overlay"></div>
+
+            <nav class="nav-menu">
+                <div class="close-nav-menu"><i class="fa-solid fa-xmark"></i></div>
+                <ul class="menu">
+                    <li class="menu-item"><a href="home-landing.html">Home</a></li>
+                    <li class="menu-item"><a href="abt.html">About Us</a></li>
+                    <li class="menu-item menu-item-has-children"><a href="#" data-toggle="sub-menu">Menu <i class="plus"></i></a>
+                        <ul class="sub-menu">
+                            <li class="menu-item"><a href="start.html">Introduction</a></li>
+                            <li class="menu-item"><a href="Data.html">Data Types</a></li>
+                            <li class="menu-item"><a href="var.html">Variables</a></li>
+                            <li class="menu-item"><a href="oper.html">Operators</a></li>
+                            <li class="menu-item"><a href="sts.html">Statements</a></li>
+                            <li class="menu-item"><a href="loops.html">Loops</a></li>
+                            <li class="menu-item"><a href="func.html">Functions</a></li>
+                            <li class="menu-item"><a href="quiz.html">Test Yourself</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="compiler.html">Code Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <script src="burgir.js"></script>
+
+    <script>
+        let processScroll = () => {
+            let docelem = document.documentElement;
+            let docBody = document.body;
+            let scrolltop = docelem['scrollTop'] || docBody['scrollTop'];
+            let scrollbot = (docelem['scrollHeight'] || docBody['scrollHeight']) - window.innerHeight;
+            
+            let scrollpercent = scrolltop / scrollbot * 100 + '%';
+            
+            document.getElementById('progress-bar').style.setProperty('--scrollAmount', scrollpercent);
+        };
+    
+        document.addEventListener('scroll', processScroll);
+    </script>
+    
+    <div id="progress-bar">
+        <img src="hoributt.gif" alt="Progress Icon" class="progress-icon">
+    </div>
+
+    <script src="theme.js"></script>
+
+    <div class="toggler">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label" onclick="toggleDarkMode()">
+            <i class="fa-regular fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+    
+    <button id="backToTopBtn" onclick="scrollToTop()">Back to Top</button>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    
+        window.onscroll = function () {
+            toggleBackToTopButton();
+        };
+    
+        function toggleBackToTopButton() {
+            var backToTopButton = document.getElementById('backToTopBtn');
+            var contentHeight = document.body.scrollHeight - window.innerHeight;
+            var scrollPercentage = (document.documentElement.scrollTop || document.body.scrollTop) / contentHeight * 100;
+    
+            if (scrollPercentage > 50) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        }
+    </script>
+    
+
+    <h1>Introduction to JavaScript</h1>
+
+    <div class="para">
+    <h2>What is JavaScript?</h2>
+    <p>JavaScript is a widely used programming language that enables interactive and dynamic content on websites. It is primarily known for client-side scripting,allowing developers to create responsive and engaging user interfaces. JavaScript is supported by most web browsers and can be integrated with HTML and CSS to build interactive web pages.</p>
+    </div>
+
+    <div class="para">
+    <h2>History of JavaScript</h2>
+    <p>JavaScript was created by Brendan Eich in 1995 while he was working at Netscape Communications Corporation. Originally called "Mocha" and later "LiveScript," it was eventually renamed JavaScript when Netscape formed a partnership with Sun Microsystems.
+
+        <br><br>In 1997, Netscape submitted JavaScript to the Ecma International standards organization, leading to the development of the ECMAScript standard. ECMAScript is the standardized specification upon which JavaScript implementations are based.
+        
+        <br><br>Over the years, JavaScript evolved, gaining popularity for its ability to add interactivity to web pages. Major advancements, such as the introduction of AJAX (Asynchronous JavaScript and XML), contributed to its role in creating more dynamic and responsive web applications.
+        
+        <br><br>In the 2010s, with the rise of single-page applications and the availability of powerful JavaScript frameworks like Angular, React, and Vue.js, JavaScript became even more integral to web development, expanding its use beyond the browser to server-side development with the advent of Node.js. Today, JavaScript is a fundamental technology for web development, powering a vast array of websites and applications</p>
+    </div>
+
+    <div class="para">
+    <h2>Java vs. JavaScript</h2>
+    <p>Java and JavaScript are distinct programming languages serving different purposes. Java, designed for platform-independent applications, is utilized in server-side development, Android mobile apps, and large-scale enterprise systems. It is an OOP (Object-Oriented Programming) language and it relies on a Java Virtual Machine (JVM) for execution, compiling code into bytecode interpreted by the JVM. On the other hand, JavaScript is predominantly employed for client-side web development, enhancing web page interactivity. It executes directly in web browsers without the need for a separate runtime environment. While both languages share some syntax similarities, Java is a class-based, statically-typed language, while JavaScript is dynamically-typed and follows prototype-based object orientation. Despite their names, Java and JavaScript are used in distinct application domains and environments.</p>
+    </div>
+
+    <div class="para">
+    <h2>The &lt;script&gt; tag</h2>
+    <p>This element in HTML is used to embed or reference JavaScript code within an HTML document. It allows you to include JavaScript directly in your HTML file or link to an external JavaScript file.</p>
+    </div>
+
+    <div class="container">
+        <div class="code-container" id="scriptAttributes">
+            <h2>Script Tag Attributes</h2>
+            <pre>
+            <code>
+            &lt;script language="javascript" type="text/javascript"&gt;
+                JavaScript code
+            &lt;/script&gt;
+            </code>
+            </pre>
+        </div>
+
+        <div class="code-container" id="scriptAttributes">
+            <h2>Script Tag Attributes</h2>
+            <pre>
+            <code>
+            &lt;script language="javascript" type="text/javascript"&gt;
+                JavaScript code
+            &lt;/script&gt;
+            </code>
+            </pre>
+            <p>
+                <strong>Attributes:</strong>
+                <ul>
+                    <li><strong>language:</strong> Specifies the scripting language (deprecated in modern HTML).</li>
+                    <li><strong>type:</strong> Indicates the scripting language; recommended value is "text/javascript".</li>
+                </ul>
+            </p>
+            <button class="copy-button" onclick="copyCode('scriptAttributes')">Copy Code</button>
+        </div>
+    
+        <div class="para">
+            <h2>Hello World Using JavaScript</h2>
+            <p>Here is an example of JavaScript code that outputs "Hello World!".</p>
+        </div>
+
+        <div class="code-container" id="javascriptSyntax">
+            <h2>JavaScript Syntax</h2>
+            <pre>
+            <code>
+            &lt;html&gt;
+                &lt;body&gt;
+                    &lt;script language="javascript" type="text/javascript"&gt;
+                        
+                                document.write("Hello World!")
+                       
+                    &lt;/script&gt;
+                &lt;/body&gt;
+            &lt;/html&gt;
+            </code>
+            </pre>
+            <p>
+                <strong>JavaScript Syntax:</strong>
+                <ul>
+                    <li><code><b>document.write</b></code>: Writes a string into the HTML document.</li>
+                </ul>
+            </p>
+            <button class="copy-button" onclick="copyCode('javascriptSyntax')">Copy Code</button>
+        </div>
+
+        <div class="output-container">
+        <h2>Output:</h2>
+        <div class="output-content">
+            Hello World!
+        </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <span class="disabled">Previous</span>
+        <a href="comment.html">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Next
+        </a>  
+    </div>
+
+    <script>
+        function copyCode(containerId) {
+            const codeContainer = document.getElementById(containerId);
+            const codeToCopy = codeContainer.querySelector('code').innerText;
+
+            const tempInput = document.createElement('textarea');
+            tempInput.value = codeToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            alert('Code copied to clipboard!');
+        }
+    </script>
+
+</body>
+</html>

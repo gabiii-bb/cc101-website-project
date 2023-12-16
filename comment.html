@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="burgir.css"/>
+    <link rel="stylesheet" href="pn-butt.css"/>
+    <script src="https://kit.fontawesome.com/57cec8c89d.js" crossorigin="anonymous"></script> 
+</head>
+
+<body class="light-mode">
+    <header class="header">
+        <div class="header-main">
+            <div class="logo">
+                <img src="ppg logo.png" class="logo" alt="Logo">
+            </div>
+
+            <div class="open-nav-menu">
+                <span></span>
+            </div>
+
+            <div class="menu-overlay"></div>
+
+            <nav class="nav-menu">
+                <div class="close-nav-menu"><i class="fa-solid fa-xmark"></i></div>
+                <ul class="menu">
+                    <li class="menu-item"><a href="home-landing.html">Home</a></li>
+                    <li class="menu-item"><a href="abt.html">About Us</a></li>
+                    <li class="menu-item menu-item-has-children"><a href="#" data-toggle="sub-menu">Menu <i class="plus"></i></a>
+                        <ul class="sub-menu">
+                            <li class="menu-item"><a href="start.html">Introduction</a></li>
+                            <li class="menu-item"><a href="Data.html">Data Types</a></li>
+                            <li class="menu-item"><a href="var.html">Variables</a></li>
+                            <li class="menu-item"><a href="oper.html">Operators</a></li>
+                            <li class="menu-item"><a href="sts.html">Statements</a></li>
+                            <li class="menu-item"><a href="loops.html">Loops</a></li>
+                            <li class="menu-item"><a href="func.html">Functions</a></li>
+                            <li class="menu-item"><a href="quiz.html">Test Yourself</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="compiler.html">Code Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <script src="burgir.js"></script>
+
+    <script>
+        let processScroll = () => {
+            let docelem = document.documentElement;
+            let docBody = document.body;
+            let scrolltop = docelem['scrollTop'] || docBody['scrollTop'];
+            let scrollbot = (docelem['scrollHeight'] || docBody['scrollHeight']) - window.innerHeight;
+            
+            let scrollpercent = scrolltop / scrollbot * 100 + '%';
+            
+            document.getElementById('progress-bar').style.setProperty('--scrollAmount', scrollpercent);
+        };
+    
+        document.addEventListener('scroll', processScroll);
+    </script>
+    
+    <div id="progress-bar">
+        <img src="hoributt.gif" alt="Progress Icon" class="progress-icon">
+    </div>
+
+    <script src="theme.js"></script>
+
+    <div class="toggler">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label" onclick="toggleDarkMode()">
+            <i class="fa-regular fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+    
+       <h1>JavaScript Comments</h1>
+
+       <div class="para">
+        <h2>Single Line Comments</h2>
+        <p>
+            '//' denotes a single-line comment. <br>
+            <br>
+            JavaScript will ignore all text between '//' and the end of the line (it will not be executed). <br>
+            <br>            
+            Each code line in this example is preceded by a single-line comment:<br>
+          <br>
+        </p>
+       </div>
+
+    <div class="container">
+    <div class="code-container" id="loopAttributes">
+        <pre>
+        <code>        
+            
+&lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+        &lt;body&gt;
+            &lt;h1 id= "myH"&gt;&lt;/h1&gt;
+            &lt;p id= "myP"&gt;&lt;/p&gt;
+            &lt;script&gt;
+ 
+               // Change heading:
+               document.getElementById("myH").innerHTML = "JavaScript Comments"; 
+
+               // Change paragraph:
+              document.getElementById("myP").innerHTML = "My first paragraph.";
+            &lt;script&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+            </code>
+        </pre>
+        <button class="copy-button" onclick="copyCode('loopAttributes')">Copy Code</button>
+    </div>
+    
+
+    <div class="output-container">
+        <h2>Output:</h2>
+        <div class="output-content">
+            <pre>
+                <h1>JavaScript Comments</h1>
+                <p>My first paragraph.</p>
+            </pre> 
+        </div>
+    </div>
+
+    <div class="para">
+    <h2>Multi-line Comments</h2>
+    <p>
+        Multi-line comments begin with /* and end with */. <br>
+        <br>
+        JavaScript ignores any text between /* and */. <br>
+        <br>
+        This example explains the code with a multi-line comment (a comment block):<br>
+      <br>
+    </p>
+   </div>
+    
+    <div class="code-container" id="loopAttributes3">
+    <pre>
+        <code>                
+        
+&lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+        &lt;body&gt;
+            &lt;h1 id= "myH"&gt;&lt;/h1&gt;
+            &lt;p id= "myP"&gt;&lt;/p&gt;
+            &lt;script&gt;
+                /*
+                The code below will change
+                the heading with id = "myH"
+                and the paragraph with id = "myP"
+                in my web page:
+                */
+                document.getElementById("myH").innerHTML = "My First Page";
+                document.getElementById("myP").innerHTML = "My first paragraph.";
+            &lt;/script&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+        </code>
+    </pre>
+    <button class="copy-button" onclick="copyCode('loopAttributes3')">Copy Code</button>
+    </div>
+
+    <div class="output-container">
+    <h2>Output:</h2>
+        <div class="output-content">
+        <pre>
+            
+            <h1>My First Page</h1>
+            <p>My first paragraph.</p>
+            
+        </pre> 
+        </div>
+    </div>  
+</div>
+
+    <div class="wrapper">
+        <a href="start.html">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Previous
+    </a>  
+        <a href="Data.html">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Next
+        </a>  
+    </div>
+    
+
+    <script>
+        function copyCode(containerId) {
+            const codeContainer = document.getElementById(containerId);
+            const codeToCopy = codeContainer.querySelector('code').innerText;
+
+            const tempInput = document.createElement('textarea');
+            tempInput.value = codeToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            alert('Code copied to clipboard!');
+        }
+    </script>
+
+    </body>
+    </html>

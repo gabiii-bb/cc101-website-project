@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="burgir.css"/>
+    <link rel="stylesheet" href="pn-butt.css"/>
+    <script src="https://kit.fontawesome.com/57cec8c89d.js" crossorigin="anonymous"></script> 
+</head>
+
+<body class="light-mode">
+    <header class="header">
+        <div class="header-main">
+            <div class="logo">
+                <img src="ppg logo.png" class="logo" alt="Logo">
+            </div>
+
+            <div class="open-nav-menu">
+                <span></span>
+            </div>
+
+            <div class="menu-overlay"></div>
+
+            <nav class="nav-menu">
+                <div class="close-nav-menu"><i class="fa-solid fa-xmark"></i></div>
+                <ul class="menu">
+                    <li class="menu-item"><a href="home-landing.html">Home</a></li>
+                    <li class="menu-item"><a href="abt.html">About Us</a></li>
+                    <li class="menu-item menu-item-has-children"><a href="#" data-toggle="sub-menu">Menu <i class="plus"></i></a>
+                        <ul class="sub-menu">
+                            <li class="menu-item"><a href="start.html">Introduction</a></li>
+                            <li class="menu-item"><a href="Data.html">Data Types</a></li>
+                            <li class="menu-item"><a href="var.html">Variables</a></li>
+                            <li class="menu-item"><a href="oper.html">Operators</a></li>
+                            <li class="menu-item"><a href="sts.html">Statements</a></li>
+                            <li class="menu-item"><a href="loops.html">Loops</a></li>
+                            <li class="menu-item"><a href="func.html">Functions</a></li>
+                            <li class="menu-item"><a href="quiz.html">Test Yourself</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="compiler.html">Code Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <script src="burgir.js"></script>
+
+    <script>
+        let processScroll = () => {
+            let docelem = document.documentElement;
+            let docBody = document.body;
+            let scrolltop = docelem['scrollTop'] || docBody['scrollTop'];
+            let scrollbot = (docelem['scrollHeight'] || docBody['scrollHeight']) - window.innerHeight;
+            
+            let scrollpercent = scrolltop / scrollbot * 100 + '%';
+            
+            document.getElementById('progress-bar').style.setProperty('--scrollAmount', scrollpercent);
+        };
+    
+        document.addEventListener('scroll', processScroll);
+    </script>
+    
+    <div id="progress-bar">
+        <img src="hoributt.gif" alt="Progress Icon" class="progress-icon">
+    </div>
+
+    <script src="theme.js"></script>
+
+    <div class="toggler">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label" onclick="toggleDarkMode()">
+            <i class="fa-regular fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+
+    <button id="backToTopBtn" onclick="scrollToTop()">Back to Top</button>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    
+        window.onscroll = function () {
+            toggleBackToTopButton();
+        };
+    
+        function toggleBackToTopButton() {
+            var backToTopButton = document.getElementById('backToTopBtn');
+            var contentHeight = document.body.scrollHeight - window.innerHeight;
+            var scrollPercentage = (document.documentElement.scrollTop || document.body.scrollTop) / contentHeight * 100;
+    
+            if (scrollPercentage > 50) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        }
+    </script>
+
+       <h1>JavaScript Loops</h1>
+
+       <div class="para">
+        <p>
+            While writing a program, you may encounter a situation where you need to perform an action over and over again. In such situation, you would need to write loop statements choose the number of lines.
+        </p>
+
+        <h2>The while Loop</h2>
+        <p>
+          The most basic loop in JavaScript is the <b>while</b> loop which would be discussed in this chapter. The purpose of a <b>while</b> loop is to execute statement or code block repeatedly as long as an <b>expression</b> is true. Once the expression becomes <b>false</b>, the loop terminates.
+          <br>
+          <br>
+          <strong>Flow Chart</strong>
+
+          <br>
+          The Flow Chart of <b>while loop</b> looks as follows:
+          <br>
+          <br>
+          <center>
+          <img src="flowchar1.png">
+          </center>
+          <br>
+          <br>
+          <strong>Syntax</strong>
+          <br>
+
+          The syntax of while loop in JavaScript is as follows:
+        </p>
+       </div>
+
+<div class="container">
+        <div class="code-container">
+        <pre>
+            <code>
+            while (expression){
+               Statement(s) to be executed if expression is true
+            }
+            </code>
+        </pre>
+        </div>     
+    <div class="para">
+        <p><b>Example: While loop</b></p>
+        <p>The JavaScript code initializes a variable named <b> 'count'</b> to 0 and uses a <b>while</b> loop to iteratively write the current count value to the document. The loop continues until the count is less than 10, incrementing the count by 1 in each iteration. After the loop concludes, the script writes "Loop Stopped!" to the document.</p>
+    </div>
+    <div class="code-container" id="loopAttributes">
+        <pre>
+        <code>        
+&lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+        &lt;body&gt;
+            &lt;script type="text/javascript"&gt;
+              &lt;!--
+                var count = 0;
+                document.write("Starting loop");
+
+                while (count < 10){
+                    document.write("Current count: " + count + "&lt;/br&gt;");
+                    count++;
+                }
+                document.write("Loop Stopped!");
+              //--&gt;
+            &lt;/script&gt;
+            &lt;p&gt;Set the variable to different value and then try...  &lt;/p&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+            </code>
+        </pre>
+        <button class="copy-button" onclick="copyCode('loopAttributes')">Copy Code</button>
+    </div>
+    
+
+    <div class="output-container">
+        <h2>Output:</h2>
+        <div class="output-content">
+            <pre>
+                Starting Loop Current Count : 0
+                Current Count : 1
+                Current Count : 2
+                Current Count : 3
+                Current Count : 4
+                Current Count : 5
+                Current Count : 6
+                Current Count : 7
+                Current Count : 8
+                Current Count : 9
+                Loop stopped!
+                    
+                Set the variable to different value and then try...
+            </pre> 
+        </div>
+    </div>
+
+    <div class="para">
+    <h2>The do...while Loop</h2>
+    <p>
+        The <b>do...while</b> loop is similar to the <b>while</b> loop except that the condition check happens at the end of the loop. This means that the look will always be executed at least once, even if the condition is false.
+      <br>
+      <br>
+      <strong>Flow Chart</strong>
+
+      <br>
+      The Flow Chart of <b>do-while loop</b> looks as follows:
+      <br>
+      <br>
+      <center>
+      <img src="flowchart2.png">
+      </center>
+      <br>
+      <br>
+      <strong>Syntax</strong>
+      <br>
+
+      The syntax of do-while loop in JavaScript is as follows:
+    </p>
+   </div>
+
+    <div class="code-container" id="loopAttributes2">
+    <pre>
+        <code>
+            do (expression){
+                Statement(s) to be executed if expression is true
+            } while (expression);
+        </code>
+    </pre>
+    </div>     
+
+    <div class="para">
+        <p><b>Example: do-while loop</b></p>
+        <p>The JavaScript code initializes a variable named <b>'count'</b> with a value of 0, then executes a <b>do-while</b> loop to check the loop condition. The script dynamically writes the current count value to the document, concatenating it with "Current count:". The loop continues as long as count is less than 5, and the script writes "Loop Stopped!" after completion.</p>
+    </div>
+    <div class="code-container" id="loopAttributes3">
+    <pre>
+        <code>                
+        
+&lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+        &lt;body&gt;
+            &lt;script type="text/javascript"&gt;
+              &lt;!--
+                var count = 0;
+                    document.write("Starting loop" + "&lt;/br&gt;");
+   
+                do {
+                    document.write("Current count: " + count + "&lt;br&gt;");
+                }
+                while ( count < 5 );
+                document.write("Loop Stopped!");
+   
+              //--&gt;
+            &lt;/script&gt;
+            &lt;p&gt;Set the variable to different value and then try...  &lt;/p&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+        </code>
+    </pre>
+    <button class="copy-button" onclick="copyCode('loopAttributes3')">Copy Code</button>
+    </div>
+
+    <div class="output-container">
+    <h2>Output:</h2>
+        <div class="output-content">
+        <pre>
+            
+            Starting Loop
+            Current Count : 0
+            Current Count : 1
+            Current Count : 2
+            Current Count : 3
+            Current Count : 4
+            Loop stopped!
+            
+            Set the variable to different value and then try...
+            
+        </pre> 
+        </div>
+    </div>  
+
+    <div class="para">
+    <h2>JavaScript - For Loop</h2>
+    <p>
+        The <b>'for'</b> loop is the most compact form of looping. It includes the following three important parts:
+      <br>
+      <ul>
+        <li>The <strong>loop initialization</strong> where we initialize our counter to a starting value. The initialization statement is executed before the loop begins.</li>
+        <li>The <strong>test statement</strong>  which will test if the given condition is true or not. If the condition is true, then the code given inside the loop will be executed, otherwise the control will come out of the loop.</li>
+        <li>The <strong>iteration statement</strong> where you can increase or decrease your counter.</li>
+    </ul>
+      <br>
+        You put all the three parts in a single line seperated by semicolons.
+      <br>
+      <br>
+    <strong>Flow Chart</strong>
+      <br>
+        The Flow Chart of a <b>for loop</b> would be as follows:
+
+      <br>
+      <br>
+      <center>
+      <img src="flowchart3.png">
+      </center>
+      <br>
+      <br>
+      <strong>Syntax</strong>
+      <br>
+
+      The syntax of while loop in JavaScript is as follows:
+    </p>
+   </div>
+
+    <div class="code-container">
+    <pre>
+        <code>
+            do (expression){
+                Statement(s) to be executed if expression is true
+            } while (expression);
+        </code>
+    </pre>
+    </div>   
+
+    <div class="para">
+        <p><b>Example: for loop</b></p>
+        <p>This JavaScript code snippet declares a variable named <b>'count'</b> and uses a <b>for</b> loop to iterate until the count is less than 10. The script dynamically writes the current count value to the document, concatenating it with the string "Current count:", with each iteration followed by a line break for better readability. Once the loop completes, it writes "Loop Stopped!" to the document.</p>
+    </div>
+    <div class="code-container" id="loopAttributes4">
+        <pre>
+        <code>
+&lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+        &lt;body&gt;
+            &lt;script type="text/javascript"&gt;
+              &lt;!--
+                var count;
+                document.write("Starting loop" + "&lt;/br&gt;");
+
+                for (count = 0; count <10; count++){
+                    document.write("Current count: " + count );
+                    document.write("&lt;/br&gt;");
+                }
+                document.write("Loop Stopped!");
+              //--&gt;
+            &lt;/script&gt;
+            &lt;p&gt;Set the variable to different value and then try...  &lt;/p&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+        </code>
+        </pre>
+        <button class="copy-button" onclick="copyCode('loopAttributes4')">Copy Code</button>
+    </div>
+
+    <div class="output-container">
+    <h2>Output:</h2>
+        <div class="output-content">
+        <pre>
+            Starting Loop
+            Current Count : 0
+            Current Count : 1
+            Current Count : 2
+            Current Count : 3
+            Current Count : 4
+            Current Count : 5
+            Current Count : 6
+            Current Count : 7
+            Current Count : 8
+            Current Count : 9
+            Loop stopped!
+
+            Set the variable to different value and then try...
+        </pre> 
+        </div>
+    </div>
+</div>
+
+    <div class="wrapper">
+        <a href="sts.html">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Previous
+    </a>  
+        <a href="func.html">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Next
+        </a>  
+    </div>
+    
+
+    <script>
+        function copyCode(containerId) {
+            const codeContainer = document.getElementById(containerId);
+            const codeToCopy = codeContainer.querySelector('code').innerText;
+
+            const tempInput = document.createElement('textarea');
+            tempInput.value = codeToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            alert('Code copied to clipboard!');
+        }
+    </script>
+
+    </body>
+    </html>

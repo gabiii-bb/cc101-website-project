@@ -1,0 +1,29 @@
+3. What are the types of values that can be represented and manipulated in a programming language?
+A. Data Types
+options:
+"A. Data Types",
+"B. Variables",
+"C. Operators",
+"D. Functions",
+
+4. These are the building blocks of any programming language.
+B. Variables
+options:
+"A. Data Types",
+"B. Variables",
+"C. Operators",
+"D. Functions",
+
+5. What is the output of this code:
+
+                const x = 5;
+                const y = 6;
+                const z = x + y;
+
+                console.log('The total is:',z);
+C. 11
+options:
+"A. 15",
+"B. 10",
+"C. 11",
+"D. 13",
